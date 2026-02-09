@@ -16,4 +16,4 @@ This project is a Healthcare Flask API containerized using Docker.
 
 ## 👨‍💻 Contributors
 - Danish
-- Friend Name
+- Prakhar
