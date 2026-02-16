@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Book Appointment - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Book appointment</h1>
+  <p class="hero-sub text-muted">Select date and provide your Health ID.</p>
+  <form action="{{ url_for('book_appointment_success') }}" method="POST">
+    <div class="form-group">
+      <label for="appointment_date">Appointment date</label>
+      <input type="date" id="appointment_date" name="appointment_date" required>
+    </div>
+    <div class="form-group">
+      <label for="health_id">Your Health ID</label>
+      <input type="text" id="health_id" name="health_id" placeholder="e.g. p1234" required>
+    </div>
+    {% if result %}
+    <div class="form-group">
+      <label for="doctor">Doctor / Option</label>
+      <select id="doctor" name="doctor">
+        {% for row in result %}
+        <option value="{{ row[0] }}">{{ row[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {% endif %}
+    <button type="submit" class="btn-health btn-block">Confirm booking</button>
+  </form>
+  <a href="{{ url_for('main_page') }}" class="back-link">← Back to home</a>
+</div>
+{% endblock %}

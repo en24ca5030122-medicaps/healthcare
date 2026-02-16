@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Insurance Dashboard - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Hello, {{ result[1] }}</h1>
+  <p class="hero-sub text-muted">Insurance agent dashboard.</p>
+  <div class="dash-options">
+    <a href="{{ url_for('check_insurance') }}" class="btn-health btn-block" style="display:block;text-align:center;">Check Insurance</a>
+  </div>
+  <a href="{{ url_for('main_page') }}" class="back-link">← Sign out / Back to home</a>
+</div>
+{% endblock %}

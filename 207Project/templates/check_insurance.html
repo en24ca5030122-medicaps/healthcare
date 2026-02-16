@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Check Insurance - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Check Insurance</h1>
+  <p class="hero-sub text-muted">Enter your insurance company name to view covered customers.</p>
+  <form action="{{ url_for('check_insurance_result') }}" method="POST">
+    <div class="form-group">
+      <label for="insurance_comp_name">Company name</label>
+      <input type="text" id="insurance_comp_name" name="insurance_comp_name" placeholder="e.g. WellsFargo" required>
+    </div>
+    <button type="submit" class="btn-health btn-block">Search customers</button>
+  </form>
+  <a href="{{ url_for('main_page') }}" class="back-link">← Back to home</a>
+</div>
+{% endblock %}

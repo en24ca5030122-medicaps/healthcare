@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Welcome to Eir Hospitals</h1>
+  <p class="hero-sub">Your trusted partner in healthcare. Login or register to access services.</p>
+  <div class="cta-grid">
+    <a href="{{ url_for('new_user') }}" class="cta-card">
+      <h3>New User</h3>
+      <p>Create an account to book appointments and manage your health records</p>
+    </a>
+    <a href="{{ url_for('existing_user') }}" class="cta-card">
+      <h3>Existing User Login</h3>
+      <p>Sign in to view appointments, scan reports and more</p>
+    </a>
+  </div>
+</div>
+{% endblock %}

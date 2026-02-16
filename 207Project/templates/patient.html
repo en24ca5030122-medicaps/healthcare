@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Patient Dashboard - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Hello, {{ result[1] }}</h1>
+  <p class="hero-sub text-muted">Choose an option below to continue.</p>
+  {% if msg %}
+  <div class="msg-success">{{ msg }}</div>
+  {% endif %}
+  <div class="dash-options">
+    <a href="{{ url_for('book_appointment') }}" class="btn-health btn-block" style="display:block;text-align:center;">Book Appointment</a>
+    <a href="{{ url_for('view_appointment') }}?health_id={{ result[0] }}" class="btn-health btn-secondary btn-block" style="display:block;text-align:center;">View my appointments</a>
+    <a href="{{ url_for('cancel_appointment') }}" class="btn-health btn-secondary btn-block" style="display:block;text-align:center;">Cancel Appointment</a>
+    <a href="{{ url_for('scan_report') }}" class="btn-health btn-secondary btn-block" style="display:block;text-align:center;">Upload / View Scan Report</a>
+  </div>
+  <a href="{{ url_for('main_page') }}" class="back-link">← Sign out / Back to home</a>
+</div>
+{% endblock %}

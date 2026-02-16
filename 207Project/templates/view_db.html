@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Database View - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Database contents</h1>
+  <p class="hero-sub text-muted">Here you can see your registered users and patients. Use this to know your <strong>Health ID</strong> and name for login.</p>
+  {% if error %}
+  <div class="msg-error">Error: {{ error }}</div>
+  {% endif %}
+
+  <h2 style="margin-top:1.5rem; font-size:1.2rem;">Login table (Health ID / Username / Password)</h2>
+  <p class="text-muted" style="font-size:0.9rem;">Login with <strong>Health ID</strong> ya <strong>Username (name)</strong> + password.</p>
+  {% if login_rows %}
+  <div style="overflow-x:auto;">
+    <table class="table-health">
+      <thead>
+        <tr>
+          {% for col in login_cols %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in login_rows %}
+        <tr>
+          {% for cell in row %}
+          <td>{% if 'password' in (login_cols[loop.index0]|lower) %}••••••{% else %}{{ cell }}{% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-muted">No login entries yet.</p>
+  {% endif %}
+
+  <h2 style="margin-top:1.5rem; font-size:1.2rem;">Patient table</h2>
+  {% if patient_rows %}
+  <div style="overflow-x:auto;">
+    <table class="table-health">
+      <thead>
+        <tr>
+          {% for col in patient_cols %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in patient_rows %}
+        <tr>
+          {% for cell in row %}
+          <td>{% if 'password' in (patient_cols[loop.index0]|lower) %}••••••{% else %}{{ cell }}{% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-muted">No patient records yet.</p>
+  {% endif %}
+
+  <h2 style="margin-top:1.5rem; font-size:1.2rem;">Appointments table</h2>
+  {% if appointment_rows %}
+  <div style="overflow-x:auto;">
+    <table class="table-health">
+      <thead>
+        <tr>
+          {% for col in appointment_cols %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in appointment_rows %}
+        <tr>
+          {% for cell in row %}
+          <td>{{ cell }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-muted">No appointments yet.</p>
+  {% endif %}
+
+  <a href="{{ url_for('view_appointment') }}" class="back-link">View appointments page →</a><br>
+  <a href="{{ url_for('existing_user') }}" class="back-link mt-2">← Go to login</a>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Register - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Create your account</h1>
+  <p class="hero-sub text-muted">Thank you for choosing Eir Hospitals. Fill in your details below.</p>
+  <form action="{{ url_for('insert_patient_data') }}" method="POST">
+    <div class="form-group">
+      <label for="id_of_user">Health ID</label>
+      <input type="text" id="id_of_user" name="id_of_user" placeholder="e.g. p1234" required autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="name_of_user">Full Name</label>
+      <input type="text" id="name_of_user" name="name_of_user" placeholder="Your name" required autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="email_of_user">Email</label>
+      <input type="email" id="email_of_user" name="email_of_user" placeholder="you@example.com" required autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="ssn_of_user">SSN</label>
+      <input type="text" id="ssn_of_user" name="ssn_of_user" placeholder="Social Security Number" required autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="psw_of_user">Password</label>
+      <input type="password" id="psw_of_user" name="psw_of_user" placeholder="Choose a password" required autocomplete="new-password">
+    </div>
+    <button type="submit" class="btn-health btn-block">Register</button>
+  </form>
+  <a href="{{ url_for('existing_user') }}" class="back-link">Already have an account? Login</a>
+</div>
+{% endblock %}

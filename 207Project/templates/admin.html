@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Admin Dashboard</h1>
+  <p class="hero-sub text-muted">Welcome, {{ result[1] }}. Your login details:</p>
+  <table class="table-health">
+    <thead>
+      <tr>
+        <th>Health ID</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ result[0] }}</td>
+        <td>{{ result[1] }}</td>
+        <td>{{ result[2] }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="{{ url_for('main_page') }}" class="back-link">← Sign out / Back to home</a>
+</div>
+{% endblock %}

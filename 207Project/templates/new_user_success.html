@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Registration - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Registration</h1>
+  <div class="msg-success">{{ msg }}</div>
+  <p class="text-muted">You can now login with your credentials.</p>
+  <a href="{{ url_for('existing_user') }}" class="btn-health">Go to login</a>
+  <a href="{{ url_for('main_page') }}" class="back-link mt-2">← Back to home</a>
+</div>
+{% endblock %}

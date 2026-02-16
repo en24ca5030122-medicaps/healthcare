@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Insurance Results - Eir Hospitals{% endblock %}
+{% block content %}
+<div class="card-health">
+  <h1 class="hero-title">Customers</h1>
+  <p class="hero-sub text-muted">Patients covered under this insurance.</p>
+  {% if error %}
+  <div class="msg-error">{{ error }}</div>
+  {% endif %}
+  {% if result %}
+    <table class="table-health">
+      <thead>
+        <tr>
+          <th>Patient name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in result %}
+        <tr>
+          <td>{{ row[0] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-muted">No customers found for this company.</p>
+  {% endif %}
+  <a href="{{ url_for('check_insurance') }}" class="back-link">← Search again</a>
+</div>
+{% endblock %}

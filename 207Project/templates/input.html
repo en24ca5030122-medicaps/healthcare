@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Healthcare Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="nav-health">
+    <a class="brand" href="{{ url_for('main_page') }}">Eir Hospitals</a>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('main_page') }}">Home</a></li>
+      <li><a href="{{ url_for('new_user') }}">Register</a></li>
+    </ul>
+  </nav>
+  <div class="app-wrap">
+    <div class="card-health">
+      <h1 class="hero-title">Welcome back</h1>
+      <p class="hero-sub text-muted">Sign in to your account</p>
+      <p class="text-muted" style="font-size:0.9rem; margin-bottom:1rem;">Use the <strong>Health ID</strong> you chose during registration, or your <strong>full name</strong>.</p>
+      {% if msg %}
+      <div class="msg-error">{{ msg }}</div>
+      {% endif %}
+      <form action="{{ url_for('result') }}" method="POST">
+        <div class="form-group">
+          <label for="uname">Health ID or Username (your name)</label>
+          <input type="text" id="uname" name="uname" placeholder="e.g. p1234 or your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="psw">Password</label>
+          <input type="password" id="psw" name="psw" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn-health btn-block">Login</button>
+      </form>
+      <a href="{{ url_for('view_db') }}" class="back-link">View database (see your Health ID / username)</a><br>
+      <a href="{{ url_for('main_page') }}" class="back-link">← Back to home</a>
+    </div>
+  </div>
+</body>
+</html>
